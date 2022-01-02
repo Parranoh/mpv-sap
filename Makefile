@@ -1,6 +1,6 @@
 CC = gcc
 LD = gcc
-CFLAGS = -Wall -Wextra -Wpedantic -fPIC
+CFLAGS += -Wall -Wextra -Wpedantic -fPIC
 ASAP = asap-5.1.0
 
 INSTALL := install
