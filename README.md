@@ -4,9 +4,6 @@ A plugin for the mpv media player that enables playback of .SAP (Slight Atari Pl
 It uses the emulator [ASAP](http://asap.sourceforge.net/) written by Piotr
 Fusik.
 
-At this point the plugin seems to work, however it is not thoroughly tested and
-should not be relied on.
-
 ## Building
 
 First install the package's dependencies:
