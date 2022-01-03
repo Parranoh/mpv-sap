@@ -4,14 +4,20 @@ A plugin for the mpv media player that enables playback of .SAP (Slight Atari Pl
 It uses the emulator [ASAP](http://asap.sourceforge.net/) written by Piotr
 Fusik.
 
-At this point the plugin seems to work, however it is not thoroughly tested and
-should not be relied on.
-
 ## Building
-Install dependency `libmpv-dev` or, alternatively, put `mpv/client.h` in the
-root directory of the repository. Then run `make`.
+
+First install the package's dependencies:
+
+* Arch Linux: `pacman -S mpv`
+
+* Debian/Ubuntu: `apt-get install libmpv-dev`
+
+* Fedora: `dnf install mpv-libs-devel`
+
+Alternatively, put `mpv/client.h` in the root directory of the
+repository. Then run `make`.
 
 ## Installing
-```sh
-mkdir -p ~/.config/mpv/scripts && mv mpv-sap.so ~/.config/mpv/scripts
-```
+
+Running `make install`/`make uninstall` as either root or your user will
+install files to the system or home directory, repectively.
