@@ -1,7 +1,7 @@
 CC = gcc
 LD = gcc
 CFLAGS += -Wall -Wextra -Wpedantic -fPIC
-ASAP = asap-5.1.0
+ASAP = asap-5.2.0
 
 INSTALL := install
 MKDIR := mkdir

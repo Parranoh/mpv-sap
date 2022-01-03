@@ -137,7 +137,7 @@ void ASAPInfo_Delete(ASAPInfo *self);
 /**
  * ASAP version - minor part.
  */
-#define ASAPInfo_VERSION_MINOR 1
+#define ASAPInfo_VERSION_MINOR 2
 
 /**
  * ASAP version - micro part.
@@ -147,7 +147,7 @@ void ASAPInfo_Delete(ASAPInfo *self);
 /**
  * ASAP version as a string.
  */
-#define ASAPInfo_VERSION "5.1.0"
+#define ASAPInfo_VERSION "5.2.0"
 
 /**
  * Years ASAP was created in.
@@ -180,6 +180,35 @@ void ASAPInfo_Delete(ASAPInfo *self);
  * Maximum number of songs in a file.
  */
 #define ASAPInfo_MAX_SONGS 32
+
+/**
+ * Returns the number of milliseconds represented by the given string.
+ * @param s Time in the <code>"mm:ss.xxx"</code> format.
+ */
+int ASAPInfo_ParseDuration(const char *s);
+
+/**
+ * Checks whether the filename represents a module type supported by ASAP.
+ * Returns <code>true</code> if the filename is supported by ASAP.
+ * @param filename Filename to check the extension of.
+ */
+bool ASAPInfo_IsOurFile(const char *filename);
+
+/**
+ * Checks whether the filename extension represents a module type supported by ASAP.
+ * Returns <code>true</code> if the filename extension is supported by ASAP.
+ * @param ext Filename extension without the leading dot.
+ */
+bool ASAPInfo_IsOurExt(const char *ext);
+
+/**
+ * Loads file information.
+ * @param self This <code>ASAPInfo</code>.
+ * @param filename Filename, used to determine the format.
+ * @param module Contents of the file.
+ * @param moduleLen Length of the file.
+ */
+bool ASAPInfo_Load(ASAPInfo *self, const char *filename, uint8_t const *module, int moduleLen);
 
 /**
  * Returns author's name.
@@ -405,7 +434,7 @@ int ASAPInfo_GetPlayerAddress(const ASAPInfo *self);
 int ASAPInfo_GetCovoxAddress(const ASAPInfo *self);
 
 /**
- * Retturns the length of the SAP header in bytes.
+ * Returns the length of the SAP header in bytes.
  * @param self This <code>ASAPInfo</code>.
  */
 int ASAPInfo_GetSapHeaderLength(const ASAPInfo *self);
@@ -418,35 +447,6 @@ int ASAPInfo_GetSapHeaderLength(const ASAPInfo *self);
  * @param moduleLen Length of the RMT file.
  */
 int ASAPInfo_GetInstrumentNamesOffset(const ASAPInfo *self, uint8_t const *module, int moduleLen);
-
-/**
- * Returns the number of milliseconds represented by the given string.
- * @param s Time in the <code>"mm:ss.xxx"</code> format.
- */
-int ASAPInfo_ParseDuration(const char *s);
-
-/**
- * Checks whether the filename represents a module type supported by ASAP.
- * Returns <code>true</code> if the filename is supported by ASAP.
- * @param filename Filename to check the extension of.
- */
-bool ASAPInfo_IsOurFile(const char *filename);
-
-/**
- * Checks whether the filename extension represents a module type supported by ASAP.
- * Returns <code>true</code> if the filename extension is supported by ASAP.
- * @param ext Filename extension without the leading dot.
- */
-bool ASAPInfo_IsOurExt(const char *ext);
-
-/**
- * Loads file information.
- * @param self This <code>ASAPInfo</code>.
- * @param filename Filename, used to determine the format.
- * @param module Contents of the file.
- * @param moduleLen Length of the file.
- */
-bool ASAPInfo_Load(ASAPInfo *self, const char *filename, uint8_t const *module, int moduleLen);
 
 /**
  * Returns human-readable description of the filename extension.
