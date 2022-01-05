@@ -3,7 +3,7 @@ LD = gcc
 CFLAGS += -Wall -Wextra -Wpedantic -fPIC
 ASAP = asap-5.2.0
 
-INSTALL := install
+INSTALL := install -m664
 MKDIR := mkdir
 RMDIR := rmdir
 LN := ln
