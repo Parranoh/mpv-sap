@@ -113,16 +113,17 @@ static void convert_to_wav(const char *input_file, const unsigned char *module, 
     int n_bytes;
 
     n_bytes = ASAP_GetWavHeader(asap, buffer, arg_sample_format, true);
-    write(ofd, buffer, n_bytes);
+    if (write_output_file(ofd, buffer, n_bytes) != 0)
+        goto abort;
 
     do {
         n_bytes = ASAP_Generate(asap, buffer, sizeof(buffer), arg_sample_format);
         if (write_output_file(ofd, buffer, n_bytes) != 0)
-            break;
+            goto abort;
     } while (n_bytes == sizeof(buffer));
 
+abort:
     close_file(ofd);
-
     ASAP_Delete(asap);
 }
 
