@@ -8,7 +8,7 @@
 
 #define MPV_ENABLE_DEPRECATED 0
 #include "mpv/client.h"
-#include "asap-5.2.0/asap.h"
+#include ASAP_H
 
 static ASAPSampleFormat arg_sample_format = ASAPSampleFormat_S16_L_E;
 static int arg_duration = -1;

@@ -23,6 +23,10 @@ mpv-sap.so:	asap.o mpv-sap.o
 asap.o:
 	$(CC) $(CFLAGS) -c -o $@ $(ASAP)/asap.c
 
+mpv-sap.o:	mpv-sap.c $(ASAP)/asap.h
+	$(CC) $(CFLAGS) -DASAP_H='"$(ASAP)/asap.h"' -c -o $@ $<
+
+
 ifneq ($(shell id -u),0)
 install: install-user
 uninstall: uninstall-user
