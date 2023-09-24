@@ -1,6 +1,4 @@
-CC = gcc
-LD = gcc
-CFLAGS += -Wall -Wextra -Wpedantic -fPIC
+CFLAGS += -Wall -Wextra -Wpedantic -fPIC -O3
 ASAP = asap-6.0.0
 
 INSTALL := install -m664
@@ -20,8 +18,8 @@ USR_SCRIPTS_DIR := $(HOME)/.config/mpv/scripts
 mpv-sap.so:	asap.o mpv-sap.o
 	$(LD) -shared -o $@ $^
 
-asap.o:
-	$(CC) $(CFLAGS) -c -o $@ $(ASAP)/asap.c
+asap.o:	$(ASAP)/asap.c $(ASAP)/asap.h
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 mpv-sap.o:	mpv-sap.c $(ASAP)/asap.h
 	$(CC) $(CFLAGS) -DASAP_H='"$(ASAP)/asap.h"' -c -o $@ $<
